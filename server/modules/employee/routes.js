@@ -19,7 +19,7 @@ appRouter.route('/addEquipment').post((req, res) => {
   appControllers.addEquipment(req, res);
 });
 
-appRouter.route('/editEquipment').put((req, res) => {
+appRouter.route('/updateEquipment').put((req, res) => {
   appControllers.updateEquipment(req, res);
 });
 
@@ -31,7 +31,7 @@ appRouter.route('/addEmployee').post((req, res) => {
   appControllers.addEmployee(req, res);
 });
 
-appRouter.route('/editEmployee').put((req, res) => {
+appRouter.route('/updateEmployee').put((req, res) => {
   appControllers.updateEmployee(req, res);
 });
 
@@ -43,7 +43,7 @@ appRouter.route('/addProject').post((req, res) => {
   appControllers.addProject(req, res);
 });
 
-appRouter.route('/editProject').put((req, res) => {
+appRouter.route('/updateProject').put((req, res) => {
   appControllers.updateProject(req, res);
 });
 
