@@ -14,8 +14,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));	
 app.use(bodyParser.json());
-app.use(session({secret:'this is secret'
-}));
+app.use(session({secret:'this is secret'}));
 
 // add the router
 const appRouter=require('./modules/employee/routes');

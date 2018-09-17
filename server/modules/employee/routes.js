@@ -20,7 +20,7 @@ appRouter.route('/addEquipment').post((req, res) => {
 });
 
 appRouter.route('/editEquipment').put((req, res) => {
-  appControllers.editEquipment(req, res);
+  appControllers.updateEquipment(req, res);
 });
 
 appRouter.route('/deleteEquipment').post((req, res) => {
@@ -32,7 +32,7 @@ appRouter.route('/addEmployee').post((req, res) => {
 });
 
 appRouter.route('/editEmployee').put((req, res) => {
-  appControllers.editEmployee(req, res);
+  appControllers.updateEmployee(req, res);
 });
 
 appRouter.route('/deleteEmployee').post((req, res) => {
@@ -44,15 +44,11 @@ appRouter.route('/addProject').post((req, res) => {
 });
 
 appRouter.route('/editProject').put((req, res) => {
-  appControllers.editProject(req, res);
+  appControllers.updateProject(req, res);
 });
 
 appRouter.route('/deleteProject').post((req, res) => {
   appControllers.deleteProject(req, res);
-});
-
-appRouter.route('/empInfo').post((req, res) => {
-  appControllers.sendEmpInfo(req, res);
 });
 
 

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 //equipment schema to store equipment details.
 const equipmentSchema = new mongoose.Schema({
+  Id: {type: String, index: {unique: true}},
   name: {type: String, trim: true},
   serialNumber: {type: Number, default: 0},
   attachment: String

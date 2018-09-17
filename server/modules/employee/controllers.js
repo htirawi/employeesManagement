@@ -1,6 +1,138 @@
 const models = require('./models');
 const bcrypt = require('bcrypt');
 
+exports.addEquipment = (req, res) => {
+  const {name} = req.body;
+  const {serialNumber} = req.body;
+  const {attachment} = req.body;
+  let Equipment = new models.Equipment({
+    name,
+    serialNumber,
+    attachment
+  });
+  Equipment.save((err, data) => {
+    if (err) {
+      throw err;
+    }
+    res.sendStatus(200);
+  })
+};
+
+exports.updateEquipment = (req, res) => {
+  const {name} = req.body;
+  const {serialNumber} = req.body;
+  const {attachment} = req.body;
+  const {id} = req.body;
+  models.Equipment.findOneAndUpdate({_id: id}, {$set: {name, serialNumber, attachment}}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  });
+};
+
+exports.deleteEquipment = (req, res) => {
+  const {id} = req.body;
+  models.Equipment.findOneAndDelete({_id: id}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  })
+};
+
+exports.addEmployee = (req, res) => {
+  const {name} = req.body;
+  const {nationality} = req.body;
+  const {jobTitle} = req.body;
+
+  let Employee = new models.Employee({
+    name,
+    nationality,
+    jobTitle
+  });
+  Employee.save((err, data) => {
+    if (err) {
+      throw err
+    }
+    res.sendStatus(200);
+  })
+};
+
+exports.updateEmployee = (req, res) => {
+  const {name} = req.body;
+  const {nationality} = req.body;
+  const {jobTitle} = req.body;
+  const {id} = req.body;
+  models.Employee.findOneAndUpdate({_id: id}, {$set: {name, nationality, jobTitle}}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  });
+};
+
+exports.deleteEmployee = (req, res) => {
+  const {id} = req.body;
+  models.Employee.findOneAndDelete({_id: id}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  })
+};
+
+//add project from data-base
+exports.addProject = (req, res) => {
+  const {name} = req.body;
+  const {type} = req.body;
+  const {fromDate} = req.body;
+  const {toDate} = req.body;
+  let project = models.Project({
+    name,
+    type,
+    fromDate,
+    toDate
+  });
+  project.save((err, data) => {
+    if (err) {
+      throw err
+    }
+    res.sendStatus(200);
+  })
+};
+
+exports.updateProject = (req, res) => {
+  const {name} = req.body;
+  const {type} = req.body;
+  const {fromDate} = req.body;
+  const {toDate} = req.body;
+  const {id} = req.body;
+  models.Project.findOneAndUpdate({_id: id}, {$set: {name, type, fromDate, toDate}}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  });
+};
+
+exports.deleteProject = (req, res) => {
+  const {id} = req.body;
+  models.Project.findOneAndDelete({_id: id}, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.sendStatus(200);
+    }
+  })
+};
+
+
 exports.logoutUser = (req, res) => {
   req.session.destroy(() => {
     res.sendStatus(200);
@@ -29,6 +161,5 @@ exports.signinUser = function (req, res) {
         });
       }
     }
-    ;
   })
-}
+};
