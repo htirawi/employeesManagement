@@ -10,9 +10,9 @@ exports.addEquipment = (req, res) => {
     serialNumber,
     attachment
   });
-  Equipment.save((err, data) => {
+  Equipment.save((err) => {
     if (err) {
-      throw err;
+      return next(err);
     }
     res.sendStatus(200);
   })
@@ -23,9 +23,9 @@ exports.updateEquipment = (req, res) => {
   const {serialNumber} = req.body;
   const {attachment} = req.body;
   const {id} = req.body;
-  models.Equipment.findOneAndUpdate({_id: id}, {$set: {name, serialNumber, attachment}}, (err, data) => {
+  models.Equipment.findOneAndUpdate({_id: id}, {$set: {name, serialNumber, attachment}}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
@@ -34,9 +34,9 @@ exports.updateEquipment = (req, res) => {
 
 exports.deleteEquipment = (req, res) => {
   const {id} = req.body;
-  models.Equipment.findOneAndDelete({_id: id}, (err, data) => {
+  models.Equipment.findOneAndDelete({_id: id}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
@@ -53,9 +53,9 @@ exports.addEmployee = (req, res) => {
     nationality,
     jobTitle
   });
-  Employee.save((err, data) => {
+  Employee.save((err) => {
     if (err) {
-      throw err
+      return next(err);
     }
     res.sendStatus(200);
   })
@@ -66,9 +66,9 @@ exports.updateEmployee = (req, res) => {
   const {nationality} = req.body;
   const {jobTitle} = req.body;
   const {id} = req.body;
-  models.Employee.findOneAndUpdate({_id: id}, {$set: {name, nationality, jobTitle}}, (err, data) => {
+  models.Employee.findOneAndUpdate({_id: id}, {$set: {name, nationality, jobTitle}}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
@@ -77,9 +77,9 @@ exports.updateEmployee = (req, res) => {
 
 exports.deleteEmployee = (req, res) => {
   const {id} = req.body;
-  models.Employee.findOneAndDelete({_id: id}, (err, data) => {
+  models.Employee.findOneAndDelete({_id: id}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
@@ -98,9 +98,9 @@ exports.addProject = (req, res) => {
     fromDate,
     toDate
   });
-  project.save((err, data) => {
+  project.save((err) => {
     if (err) {
-      throw err
+      return next(err);
     }
     res.sendStatus(200);
   })
@@ -112,9 +112,9 @@ exports.updateProject = (req, res) => {
   const {fromDate} = req.body;
   const {toDate} = req.body;
   const {id} = req.body;
-  models.Project.findOneAndUpdate({_id: id}, {$set: {name, type, fromDate, toDate}}, (err, data) => {
+  models.Project.findOneAndUpdate({_id: id}, {$set: {name, type, fromDate, toDate}}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
@@ -123,9 +123,9 @@ exports.updateProject = (req, res) => {
 
 exports.deleteProject = (req, res) => {
   const {id} = req.body;
-  models.Project.findOneAndDelete({_id: id}, (err, data) => {
+  models.Project.findOneAndDelete({_id: id}, (err) => {
     if (err) {
-      throw err;
+      return next(err);
     } else {
       res.sendStatus(200);
     }
