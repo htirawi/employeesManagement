@@ -11,9 +11,7 @@ exports.addEquipment = (req, res) => {
     attachment
   });
   Equipment.save((err) => {
-    if (err) {
-      return next(err);
-    }
+    if (err) return next(err);
     res.sendStatus(200);
   })
 };
@@ -24,22 +22,16 @@ exports.updateEquipment = (req, res) => {
   const {attachment} = req.body;
   const {id} = req.body;
   models.Equipment.findOneAndUpdate({_id: id}, {$set: {name, serialNumber, attachment}}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   });
 };
 
 exports.deleteEquipment = (req, res) => {
   const {id} = req.body;
   models.Equipment.findOneAndDelete({_id: id}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   })
 };
 
@@ -54,9 +46,7 @@ exports.addEmployee = (req, res) => {
     jobTitle
   });
   Employee.save((err) => {
-    if (err) {
-      return next(err);
-    }
+    if (err) return next(err);
     res.sendStatus(200);
   })
 };
@@ -67,22 +57,16 @@ exports.updateEmployee = (req, res) => {
   const {jobTitle} = req.body;
   const {id} = req.body;
   models.Employee.findOneAndUpdate({_id: id}, {$set: {name, nationality, jobTitle}}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   });
 };
 
 exports.deleteEmployee = (req, res) => {
   const {id} = req.body;
   models.Employee.findOneAndDelete({_id: id}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   })
 };
 
@@ -99,9 +83,7 @@ exports.addProject = (req, res) => {
     toDate
   });
   project.save((err) => {
-    if (err) {
-      return next(err);
-    }
+    if (err) return next(err);
     res.sendStatus(200);
   })
 };
@@ -113,22 +95,16 @@ exports.updateProject = (req, res) => {
   const {toDate} = req.body;
   const {id} = req.body;
   models.Project.findOneAndUpdate({_id: id}, {$set: {name, type, fromDate, toDate}}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   });
 };
 
 exports.deleteProject = (req, res) => {
   const {id} = req.body;
   models.Project.findOneAndDelete({_id: id}, (err) => {
-    if (err) {
-      return next(err);
-    } else {
-      res.sendStatus(200);
-    }
+    if (err) return next(err);
+    res.sendStatus(200);
   })
 };
 
